@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(27)
     defaultConfig {
         applicationId = "org.gradle.kotlin.dsl.samples.androidstudio"
         minSdkVersion(15)
-        targetSdkVersion(28)
+        targetSdkVersion(27)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
@@ -25,16 +25,19 @@ android {
 }
 
 dependencies {
-    val appcompatVersion = "28.0.0"
+    val appcompatVersion = "27.0.0"
     val constraintLayoutVersion = "1.1.3"
     val junitVersion = "4.12"
     val testRunnerVersion = "1.0.2"
     val espressoVersion = "3.0.2"
+    val ankoVersion = "0.10.8"
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
     implementation("com.android.support:appcompat-v7:$appcompatVersion")
     implementation("com.android.support.constraint:constraint-layout:$constraintLayoutVersion")
+    implementation("org.jetbrains.anko:anko:$ankoVersion")
+    implementation("org.koin:koin-android:1.0.2")
     testImplementation("junit:junit:$junitVersion")
     androidTestImplementation("com.android.support.test:runner:$testRunnerVersion")
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$espressoVersion")

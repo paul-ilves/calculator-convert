@@ -1,3 +1,13 @@
 <resources>
   <string name="app_name">Currency Calculator</string>
+  <string name="push_me">Convert currencies</string>
+  <string name="cashAmount">Enter your cash amount:</string>
+  <string name="from">From:</string>
+  <string name="to">To</string>
+  <string-array name="currencies">
+    <item>USD</item>
+    <item>EUR</item>
+    <item>UAH</item>
+    <item>RUB</item>
+  </string-array>
 </resources>
