@@ -1,84 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:padding="16dp"
-  tools:context=".activity.MainActivity">
 
-  <TextView
-    android:id="@+id/title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_marginTop="17dp"
-    android:text="@string/cashAmount" />
-
-  <LinearLayout
-    android:id="@+id/container"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_below="@id/title"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.paulilves.currencycalculator.activities.MainActivity">
 
-    <LinearLayout
-      android:id="@+id/from"
-      android:orientation="horizontal"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-
-      <EditText
-        android:id="@+id/cashAmountFrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="@string/from"
-        android:ems="10"
-        android:layout_marginBottom="10dp" />
-
-      <Spinner
-        android:id="@+id/currencyFrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:entries="@array/currencies" />
-    </LinearLayout>
-
-    <LinearLayout
-      android:id="@+id/to"
-      android:orientation="horizontal"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
-
-      <TextView
-        android:id="@+id/cashAmountTo"
+    <EditText
+        android:id="@+id/operand1Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/to"
-        android:ems="10"
-        android:layout_marginBottom="10dp" />
+        android:enabled="false"
+        android:gravity="end"
+        android:lines="1"
+        android:maxLines="2"
+        android:textSize="20sp" />
 
-      <Spinner
-        android:id="@+id/currencyTo"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:entries="@array/currencies" />
+        android:layout_marginBottom="40dp"
+        android:textSize="20sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonClear"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="с"
+                android:textColor="#e03b08"
+                android:textSize="25dp"
+                android:onClick="clickClear" />
+
+            <Button
+                android:id="@+id/buttonDelete"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R"
+                android:textColor="@color/buttonDeleteColor"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/buttonMod"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:textColor="@color/buttonExtraTextColor"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/buttonDivide"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="÷"
+                android:textColor="@color/buttonExtraTextColor"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonSeven"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonEight"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonNine"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonMultiply"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="×"
+                android:textColor="@color/buttonExtraTextColor"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonFour"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonFive"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonSix"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonSubtract"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/buttonExtraTextColor"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonOne"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonTwo"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonThree"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonAdd"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textColor="@color/buttonExtraTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonChangeSign"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+/-"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickChangeSign" />
+
+            <Button
+                android:id="@+id/buttonZero"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickNumber" />
+
+            <Button
+                android:id="@+id/buttonDot"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="."
+                android:textColor="@color/buttonTextColor"
+                android:textSize="25dp"
+                android:onClick="clickDot"/>
+
+            <Button
+                android:id="@+id/buttonEquals"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="="
+                android:textColor="@color/buttonExtraTextColor"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
-  </LinearLayout>
+    <!-- -->
 
 
-  <Button
-    android:id="@+id/findBeer"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/container"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="36dp"
-    android:text="@string/push_me"
-    android:onClick="onClickConvertCurrencies" />
-
-
-</RelativeLayout>
+</LinearLayout>

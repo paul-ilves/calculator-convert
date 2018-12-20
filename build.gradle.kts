@@ -1,3 +1,8 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    kotlin("jvm") version "1.3.10"
+}
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -21,6 +26,6 @@ allprojects {
     }
 }
 
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
-}
+//tasks.register("clean", Delete::class) {
+//    delete(rootProject.buildDir)
+//}
